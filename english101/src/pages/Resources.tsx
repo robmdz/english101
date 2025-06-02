@@ -1,5 +1,3 @@
-
-
 const Resources = () => {
   const resources = [
     {
@@ -29,13 +27,19 @@ const Resources = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-8">
+    <div className="min-h-screen bg-black p-8">
       <nav className="max-w-7xl mx-auto mb-8">
         <div className="flex justify-between items-center">
-          <a href="/" className="text-3xl font-bold text-gray-800 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300">English 101</a>
+          <a 
+            href="/" 
+            className="text-3xl font-bold text-purple-400 hover:text-purple-300"
+          >
+            English 101
+          </a>
           <div className="flex items-center space-x-4">
-            <a href="/vocabulary" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Vocabulary</a>
-            <a href="/grammar" className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300">Grammar</a>
+            <a href="/vocabulary" className="text-purple-400 hover:text-purple-300">Vocabulary</a>
+            <a href="/grammar" className="text-purple-400 hover:text-purple-300">Grammar</a>
+            <a href="/about" className="text-purple-400 hover:text-purple-300">About</a>
           </div>
         </div>
       </nav>
