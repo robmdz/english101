@@ -62,20 +62,20 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black p-8">
-      <nav className="max-w-7xl mx-auto mb-8">
+    <div className="min-h-screen bg-black p-4 sm:p-6 md:p-8">
+      <nav className="max-w-7xl mx-auto mb-4 sm:mb-6 md:mb-8">
         <div className="flex justify-between items-center">
           <a 
             href="/" 
-            className="text-3xl font-bold text-purple-400 hover:text-purple-300"
+            className="text-2xl sm:text-3xl font-bold text-purple-400 hover:text-purple-300"
           >
             English 101
           </a>
         </div>
       </nav>
 
-      <div className="max-w-md mx-auto bg-gray-900 rounded-lg shadow-lg p-8 border border-purple-500">
-        <h2 className="text-2xl font-bold text-purple-400 mb-6">Create an Account</h2>
+      <div className="max-w-md mx-auto bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6 md:p-8 border border-purple-500">
+        <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-4 sm:mb-6">Create an Account</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-purple-300">Full Name</label>
@@ -85,12 +85,12 @@ const Register = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white text-sm sm:text-base ${
                 errors.name ? 'border-red-500' : 'border-gray-700'
               }`}
               placeholder="Enter your full name"
             />
-            {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+            {errors.name && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.name}</p>}
           </div>
 
           <div>
@@ -101,12 +101,12 @@ const Register = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white text-sm sm:text-base ${
                 errors.phone ? 'border-red-500' : 'border-gray-700'
               }`}
               placeholder="Enter your phone number"
             />
-            {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
+            {errors.phone && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.phone}</p>}
           </div>
 
           <div>
@@ -117,22 +117,22 @@ const Register = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white ${
+              className={`mt-1 block w-full rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500 bg-gray-800 text-white text-sm sm:text-base ${
                 errors.email ? 'border-red-500' : 'border-gray-700'
               }`}
               placeholder="Enter your email address"
             />
-            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+            {errors.email && <p className="mt-1 text-xs sm:text-sm text-red-500">{errors.email}</p>}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+            className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 text-sm sm:text-base"
           >
             Register
           </button>
 
-          <p className="text-center text-sm text-purple-300">
+          <p className="text-center text-xs sm:text-sm text-purple-300">
             Already have an account?{' '}
             <a href="/" className="text-purple-400 hover:text-purple-300">
               Sign in
