@@ -1,4 +1,3 @@
-import React from 'react';
 import PricingCards from '../components/PricingCards';
 
 const Home = () => {

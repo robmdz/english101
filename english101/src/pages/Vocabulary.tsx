@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FlipCard from '../components/FlipCard';
 import CategorySelector from '../components/CategorySelector';
 import Img1 from '../assets/bread.jpg';
