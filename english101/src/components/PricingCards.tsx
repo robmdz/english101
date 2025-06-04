@@ -12,7 +12,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPop
     <div className={`relative p-6 rounded-xl ${isPopular ? 'bg-purple-600' : 'bg-gray-800'} border border-purple-500`}>
       {isPopular && (
         <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <span className="bg-purple-400 text-purple-900 px-4 py-1 rounded-full text-sm font-semibold">
+          <span className="bg-purple-400 text-white px-4 py-1 rounded-full text-sm font-semibold">
             Most Popular
           </span>
         </div>
@@ -100,8 +100,8 @@ const PricingCards = () => {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-purple-400 mb-4">Choose Your Learning Plan</h2>
-        <p className="text-purple-300 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-4">Choose Your Learning Plan</h2>
+        <p className="text-white max-w-2xl mx-auto">
           Select the perfect plan to accelerate your English learning journey
         </p>
       </div>

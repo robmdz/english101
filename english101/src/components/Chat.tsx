@@ -83,7 +83,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col w-full h-[85vh] bg-gray-800 rounded-lg overflow-hidden">
+    <div className="flex flex-col w-full h-[85vh] bg-gradient-to-b from-purple-800 to-purple-900 rounded-lg overflow-hidden">
       <div className="flex-grow p-4 sm:p-6 space-y-4 overflow-y-auto">
         {messages.map((msg) => (
           <div
@@ -94,10 +94,10 @@ const Chat = () => {
               className={`max-w-[70%] sm:max-w-[65%] p-3 rounded-xl break-words
                 ${
                   msg.sender === 'user'
-                    ? 'bg-purple-600 text-white rounded-br-none'
-                    : 'bg-gray-700 text-purple-100 rounded-bl-none'
+                    ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-br-none'
+                    : 'bg-gradient-to-r from-purple-800 to-purple-900 text-purple-400 rounded-bl-none'
                 }
-                ${msg.id.includes('-error') ? '!bg-red-700 text-red-100' : ''}
+                ${msg.id.includes('-error') ? '!bg-gradient-to-r from-red-700 to-red-800 text-red-100' : ''}
               `}
             >
               {msg.text.split('\n').map((line, index) => (
@@ -111,7 +111,7 @@ const Chat = () => {
         ))}
         {isLoading && (
           <div className="flex justify-start">
-            <div className="max-w-[70%] sm:max-w-[65%] p-3 rounded-xl bg-gray-700 text-purple-300 rounded-bl-none animate-pulse">
+            <div className="max-w-[70%] sm:max-w-[65%] p-3 rounded-xl bg-gradient-to-r from-purple-800 to-purple-900 text-purple-400 rounded-bl-none animate-pulse">
               <p><i>Thinking...</i></p>
             </div>
           </div>
@@ -121,7 +121,7 @@ const Chat = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="flex items-center p-3 sm:p-4 border-t border-purple-500 bg-gray-900"
+        className="flex items-center p-3 sm:p-4 border-t border-purple-500 bg-gradient-to-r from-purple-800 to-purple-900"
       >
         <input
           ref={inputRef}
@@ -130,17 +130,17 @@ const Chat = () => {
           onChange={(e) => setUserInput(e.target.value)}
           placeholder="Escribe tu mensaje..."
           disabled={isLoading}
-          className="flex-grow p-3 border border-purple-500 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none bg-gray-800 text-purple-100 placeholder-purple-300 disabled:opacity-50"
+          className="flex-grow p-1 border border-purple-500 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none bg-purple-900 text-purple-400 placeholder-purple-400 disabled:opacity-50"
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
-              handleSubmit(e as any);
+              handleSubmit(e);
             }
           }}
         />
         <button
           type="submit"
           disabled={isLoading}
-          className="ml-3 p-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full disabled:bg-purple-800 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+          className="ml-1 p-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white rounded-full disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
             <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />

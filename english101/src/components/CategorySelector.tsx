@@ -29,7 +29,7 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({ selectedCategory, o
 
   return (
     <div className="mb-8">
-      <h3 className="text-xl font-bold text-purple-400 mb-4">Categories</h3>
+      <h3 className="text-xl font-bold text-white mb-4">Categories</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {categories.map((category) => (
           <button
@@ -38,7 +38,7 @@ const CategorySelector: React.FC<CategorySelectorProps> = ({ selectedCategory, o
             className={`p-4 rounded-xl border transition-all duration-200 flex flex-col items-center justify-center
               ${selectedCategory === category.id 
                 ? 'bg-purple-600 border-purple-400 text-white' 
-                : 'bg-gray-800 border-purple-500 text-purple-300 hover:bg-gray-700'
+                : 'bg-gray-800 border-purple-500 text-white hover:bg-gray-700'
               }`}
           >
             <span className="text-2xl mb-2">{category.icon}</span>
