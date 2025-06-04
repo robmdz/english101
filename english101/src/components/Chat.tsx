@@ -7,7 +7,7 @@ interface Message {
   sender: 'user' | 'ai';
 }
 
-const API_URL = "http://localhost:8000/api/chat";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/chat";
 
 const Chat = () => {
   const [userInput, setUserInput] = useState<string>('');
