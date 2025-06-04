@@ -6,25 +6,9 @@ interface Message {
   text: string;
   sender: 'user' | 'ai';
 }
-// Obtén la URL base del backend desde las variables de entorno.
-// En producción (Vercel), VITE_API_URL será la URL de tu backend en Render.
-// En desarrollo local, si VITE_API_URL no está definida (porque no tienes un .env local con ella),
-// usará 'http://localhost:8000' como fallback.
+
+// Obtén la URL base del backend desde las variables de entorno
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/chat";
-
-// Construye la URL completa para el endpoint específico del chat
-const API_CHAT_URL = `${API_URL}/api/chat`; // Asumiendo que tu endpoint en el backend es /api/chat
-
-// (Opcional pero recomendado) Añade un console.log para depurar y verificar qué URL se está usando:
-console.log("VITE_API_URL desde el entorno:", import.meta.env.VITE_API_URL);
-console.log("API_BASE_URL calculada:", API_URL);
-console.log("Conectando al endpoint del chat en:", API_CHAT_URL);
-
-// Luego, cuando hagas tu llamada fetch, usa API_CHAT_URL:
-// async function tuFuncionDeFetch() {
-//   const response = await fetch(API_CHAT_URL, { /* ... opciones ... */ });
-//   // ...
-// }
 
 const Chat = () => {
   const [userInput, setUserInput] = useState<string>('');
