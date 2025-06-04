@@ -13,6 +13,7 @@ const About = () => {
             <a href="/vocabulary" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Vocabulary</a>
             <a href="/grammar" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Grammar</a>
             <a href="/resources" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Resources</a>
+            <a href="/chat" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Chat</a>
           </div>
         </div>
       </nav>

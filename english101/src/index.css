@@ -16,7 +16,7 @@
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
-
 body {
   font-family: "Inter", sans-serif;
 }
+

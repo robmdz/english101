@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import FlipCard from '../components/FlipCard';
+import CategorySelector from '../components/CategorySelector';
 import Img1 from '../assets/bread.jpg';
 import Img2 from '../assets/burger.jpg';
 import Img3 from '../assets/cereal.jpg';
@@ -13,11 +15,29 @@ import Img11 from '../assets/Cranberry.jpg';
 import Img12 from '../assets/Blueberries.jpg';
 
 const Vocabulary = () => {
-  const words = [
-    { word: 'Bread', meaning: 'A staple food made from flour and water', example: 'I eat bread for breakfast.' },
-    { word: 'Burger', meaning: 'A sandwich consisting of a cooked patty of ground meat', example: 'I ordered a cheeseburger.' },
-    { word: 'Cereal', meaning: 'A breakfast food made from processed grains', example: 'I have cereal with milk every morning.' },
-  ];
+  const [selectedCategory, setSelectedCategory] = useState('fruits');
+
+  const vocabularyData = {
+    fruits: [
+      { word: 'Apricot', meaning: 'A sweet, orange fruit with a soft, velvety skin', example: 'I love eating fresh apricots in summer.', image: Img4 },
+      { word: 'Avocado', meaning: 'A pear-shaped fruit with dark green skin and soft green flesh', example: 'I like to make guacamole with avocados.', image: Img5 },
+      { word: 'Cherry', meaning: 'A small, round fruit with red or black skin and a hard seed', example: 'These cherries are perfectly ripe and sweet.', image: Img6 },
+      { word: 'Oranges', meaning: 'A round, orange-colored citrus fruit with a sweet taste', example: 'I drink fresh orange juice every morning.', image: Img7 },
+      { word: 'Pears', meaning: 'A sweet, juicy fruit with a narrow top and wider bottom', example: 'These pears are perfect for making a fruit salad.', image: Img8 },
+      { word: 'Pineapple', meaning: 'A tropical fruit with a tough, spiky skin and sweet yellow flesh', example: 'I love the sweet and tangy taste of pineapple.', image: Img9 },
+      { word: 'Raspberries', meaning: 'Small, red, sweet berries with a hollow center', example: 'I picked fresh raspberries from the garden.', image: Img10 },
+      { word: 'Cranberries', meaning: 'Small, red, tart berries with a firm texture', example: 'I love making cranberry sauce for Thanksgiving.', image: Img11 },
+      { word: 'Blueberries', meaning: 'Small, blue, sweet berries with a firm texture', example: 'I love eating blueberries with yogurt for breakfast.', image: Img12 }
+    ],
+    food: [
+      { word: 'Bread', meaning: 'A staple food made from flour and water', example: 'I eat bread for breakfast.', image: Img1 },
+      { word: 'Burger', meaning: 'A sandwich consisting of a cooked patty of ground meat', example: 'I ordered a cheeseburger.', image: Img2 },
+      { word: 'Cereal', meaning: 'A breakfast food made from processed grains', example: 'I have cereal with milk every morning.', image: Img3 }
+    ],
+    // Add more categories with their respective vocabulary items
+  };
+
+  const currentCategoryItems = vocabularyData[selectedCategory as keyof typeof vocabularyData] || [];
 
   return (
     <div className="min-h-screen bg-black p-4 sm:p-6 md:p-8">
@@ -33,207 +53,41 @@ const Vocabulary = () => {
             <a href="/grammar" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Grammar</a>
             <a href="/resources" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Resources</a>
             <a href="/about" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">About</a>
+            <a href="/chat" className="text-purple-400 hover:text-purple-300 text-lg sm:text-base">Chat</a>
           </div>
         </div>
       </nav>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-4 sm:mb-6 text-center">Vocabulary Cards</h2>
+        
+        <CategorySelector 
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
+        />
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img1} alt="Bread" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Bread</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">{words[0].meaning}</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"{words[0].example}"</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img2} alt="Burger" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Burger</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">{words[1].meaning}</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"{words[1].example}"</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img3} alt="Cereal" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Cereal</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">{words[2].meaning}</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"{words[2].example}"</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img4} alt="Apricot" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Apricot</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A sweet, orange fruit with a soft, velvety skin</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I love eating fresh apricots in summer."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img5} alt="Avocado" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Avocado</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A pear-shaped fruit with dark green skin and soft green flesh</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I like to make guacamole with avocados."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img6} alt="Cherry" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Cherry</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A small, round fruit with red or black skin and a hard seed</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"These cherries are perfectly ripe and sweet."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img7} alt="Oranges" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Oranges</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A round, orange-colored citrus fruit with a sweet taste</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I drink fresh orange juice every morning."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img8} alt="Pears" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Pears</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A sweet, juicy fruit with a narrow top and wider bottom</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"These pears are perfect for making a fruit salad."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img9} alt="Pineapple" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Pineapple</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">A tropical fruit with a tough, spiky skin and sweet yellow flesh</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I love the sweet and tangy taste of pineapple."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img10} alt="Raspberries" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Raspberries</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">Small, red, sweet berries with a hollow center</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I picked fresh raspberries from the garden."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img11} alt="Cranberries" className="w-full h-full object-cover" />
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Cranberries</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">Small, red, tart berries with a firm texture</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I love making cranberry sauce for Thanksgiving."</p>
-                </div>
-              }
-            />
-          </div>
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <FlipCard
-              frontContent={
-                <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
-                  <img src={Img12} alt="Blueberries" className="w-full h-full object-cover" />  
-                </div>
-              }
-              backContent={
-                <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
-                  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">Blueberries</h2>
-                  <p className="text-purple-300 text-center text-sm sm:text-base">Small, blue, sweet berries with a firm texture</p>
-                  <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"I love eating blueberries with yogurt for breakfast."</p>
-                </div>
-              }
-            />
-          </div>
+          {currentCategoryItems.map((item, index) => (
+            <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+              <FlipCard
+                frontContent={
+                  <div className="w-full h-full rounded-lg overflow-hidden max-w-sm">
+                    <img src={item.image} alt={item.word} className="w-full h-full object-cover" />
+                  </div>
+                }
+                backContent={
+                  <div className="w-full h-full bg-gray-900 rounded-lg p-4 sm:p-6 flex flex-col items-center justify-center border border-purple-500 max-w-sm">
+                    <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-2 text-center">{item.word}</h2>
+                    <p className="text-purple-300 text-center text-sm sm:text-base">{item.meaning}</p>
+                    <p className="text-purple-300 text-center mt-2 italic text-sm sm:text-base">"{item.example}"</p>
+                  </div>
+                }
+              />
+            </div>
+          ))}
         </div>
       </div>
+
       <footer className="mt-8 border-t border-purple-500">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">

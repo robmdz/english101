@@ -5,19 +5,21 @@ import Grammar from './pages/Grammar';
 import Resources from './pages/Resources';
 import Register from './pages/Register';
 import About from './pages/About';
+import ChatPage from './pages/ChatFace';
 
 const App = () => {
   return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/vocabulary" element={<Vocabulary />} />
-          <Route path="/grammar" element={<Grammar />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/vocabulary" element={<Vocabulary />} />
+        <Route path="/grammar" element={<Grammar />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/chat" element={<ChatPage />} />
+      </Routes>
+    </Router>
   );
 };
 
