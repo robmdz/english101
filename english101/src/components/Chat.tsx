@@ -8,7 +8,8 @@ interface Message {
 }
 
 // Obtén la URL base del backend desde las variables de entorno
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/chat";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_CHAT_URL = `${API_URL}/api/chat`
 
 const Chat = () => {
   const [userInput, setUserInput] = useState<string>('');
@@ -40,7 +41,7 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_CHAT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
