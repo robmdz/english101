@@ -11,6 +11,10 @@ interface Message {
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 const API_CHAT_URL = `${API_URL}/api/chat`
 
+console.log("CLIENT_SIDE VITE_API_URL:", import.meta.env.VITE_API_URL);
+console.log("CLIENT_SIDE API_URL (base):", API_URL);
+console.log("CLIENT_SIDE API_CHAT_URL (completa):", API_CHAT_URL);
+
 const Chat = () => {
   const [userInput, setUserInput] = useState<string>('');
   const [messages, setMessages] = useState<Message[]>([]);
