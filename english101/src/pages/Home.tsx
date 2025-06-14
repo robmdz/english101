@@ -2,7 +2,7 @@ import PricingCards from '../components/PricingCards';
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-800 to-purple-900">
+    <div className="min-h-screen bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
@@ -14,19 +14,19 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             <a
               href="/chat"
-              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-purple-800 transition-colors text-center"
+              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-purple-800 transition-colors text-center border-4 border-purple-500"
             >
               Start Learning
             </a>
             <a
               href="/about"
-              className="w-full sm:w-auto border border-purple-500 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-purple-800 transition-colors text-center"
+              className="w-full sm:w-auto border-4 border-purple-500 text-white px-8 sm:px-10 py-4 rounded-full font-semibold hover:bg-purple-800 transition-colors text-center my-4"
             >
               Learn More
             </a>
             <a
               href="/register"
-              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-purple-800 transition-colors text-center"
+              className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-purple-800 transition-colors text-center border-4 border-purple-500"
             >
               Register
             </a>
@@ -34,7 +34,7 @@ const Home = () => {
               href="https://wa.me/573023214492"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-green-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors text-center"
+              className="w-full sm:w-auto bg-green-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors text-center border-4 border-green-500"
             >
               Whatsapp
             </a>
