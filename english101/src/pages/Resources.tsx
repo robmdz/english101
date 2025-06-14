@@ -27,7 +27,7 @@ const Resources = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-800 to-purple-900 p-4 sm:p-6 md:p-8">
+    <div className="min-h-screen bg-black p-4 sm:p-6 md:p-8">
       <nav className="max-w-7xl mx-auto mb-4 sm:mb-6 md:mb-8">
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <a 
